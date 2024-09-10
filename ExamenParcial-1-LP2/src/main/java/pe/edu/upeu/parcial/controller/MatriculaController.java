@@ -77,7 +77,7 @@ public class MatriculaController {
 	public ResponseEntity<?> updateMatricula(@PathVariable("id") Long id, @Valid @RequestBody Matricula cat){
 
 			Optional<Matricula> c = service.read(id);
-			if(c.isEmpty()) {
+			if(!c.isEmpty()) {
 				return new ResponseEntity<>(service.update(cat), HttpStatus.OK);
 			}else {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

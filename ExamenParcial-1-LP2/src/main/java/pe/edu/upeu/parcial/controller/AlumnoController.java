@@ -77,7 +77,7 @@ public class AlumnoController {
 	public ResponseEntity<?> updateAlumno(@PathVariable("id") Long id, @Valid @RequestBody Alumno cat){
 
 			Optional<Alumno> c = service.read(id);
-			if(c.isEmpty()) {
+			if(!c.isEmpty()) {
 				return new ResponseEntity<>(service.update(cat), HttpStatus.OK);
 			}else {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

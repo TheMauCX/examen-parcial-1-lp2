@@ -77,7 +77,7 @@ public class GradoController {
 	public ResponseEntity<?> updateGrado(@PathVariable("id") Long id, @Valid @RequestBody Grado cat){
 
 			Optional<Grado> c = service.read(id);
-			if(c.isEmpty()) {
+			if(!c.isEmpty()) {
 				return new ResponseEntity<>(service.update(cat), HttpStatus.OK);
 			}else {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
